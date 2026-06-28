@@ -5,8 +5,10 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
+  const isProd = mode === 'production'
+
   return {
-    base: '/front/',
+    base: isProd ? '/front/' : '/',
     plugins: [react(), tailwindcss()],
     server: {
       proxy: {
