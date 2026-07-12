@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="计算机二级MS Office选择题学习工具 - 知识点梳理、练习题、错题本、模拟测试">
+  <title>计算机二级MS Office · 选择题精练</title>
+
+  <!-- 防闪烁：在CSS加载前设置主题 -->
+  <script>
+    (function() {
+      var theme = localStorage.getItem('ncre2_theme') || 'auto';
+      var actualTheme = theme;
+      if (theme === 'auto') {
+        actualTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', actualTheme);
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 样式文件 -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- 第三方库 -->
+  <!-- QRCode 二维码生成库 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Firebase SDK (按需加载，未配置则不初始化) -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar"></nav>
+
+    <!-- 主内容区 -->
+    <div class="main-container" id="mainContainer">
+      <!-- 侧边栏（动态渲染） -->
+      <aside class="sidebar" id="sidebar"></aside>
+
+      <!-- 侧边栏遮罩（移动端） -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- 内容区 -->
+      <main class="content-area" id="contentArea">
+        <!-- 页面动态渲染 -->
+      </main>
+    </div>
+  </div>
+
+  <!-- 搜索弹窗 -->
+  <div class="search-modal hidden" id="searchModal"></div>
+
+  <!-- 数据文件（最先加载） -->
+  <script src="assets/data/chapters.js"></script>
+  <script src="assets/data/questions.js"></script>
+  <script src="assets/data/flashcards.js"></script>
+
+  <!-- 工具函数 -->
+  <script src="assets/js/utils/helpers.js"></script>
+  <script src="assets/js/utils/timer.js"></script>
+  <script src="assets/js/utils/search.js"></script>
+
+  <!-- 数据管理层 -->
+  <script src="assets/js/store.js"></script>
+
+  <!-- 核心框架 -->
+  <script src="assets/js/router.js"></script>
+  <script src="assets/js/components/theme-toggle.js"></script>
+  <script src="assets/js/components/navbar.js"></script>
+  <script src="assets/js/components/sidebar.js"></script>
+  <script src="assets/js/components/question-card.js"></script>
+  <script src="assets/js/components/progress-ring.js"></script>
+  <script src="assets/js/components/flashcard.js"></script>
+  <script src="assets/js/components/search-modal.js"></script>
+
+  <!-- 视图 -->
+  <script src="assets/js/views/home.js"></script>
+  <script src="assets/js/views/study.js"></script>
+  <script src="assets/js/views/practice.js"></script>
+  <script src="assets/js/views/wrongbook.js"></script>
+  <script src="assets/js/views/mock-exam.js"></script>
+  <script src="assets/js/views/favorites.js"></script>
+  <script src="assets/js/views/flashcards.js"></script>
+  <script src="assets/js/views/settings.js"></script>
+
+  <!-- 同步管理器 -->
+  <script src="assets/js/sync.js"></script>
+
+  <!-- 主应用 -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

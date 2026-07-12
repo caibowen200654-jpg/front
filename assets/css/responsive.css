@@ -1,0 +1,233 @@
+/* ============================================
+   响应式断点适配
+   ============================================ */
+
+/* === 平板 (768px 以下) === */
+@media (max-width: 768px) {
+  :root {
+    --fs-base: 14px;
+    --fs-sm: 13px;
+    --fs-md: 15px;
+    --fs-lg: 16px;
+    --fs-xl: 18px;
+    --fs-2xl: 20px;
+  }
+
+  /* 导航栏 */
+  .navbar {
+    padding: 0 var(--space-md);
+    gap: var(--space-sm);
+  }
+  .navbar-logo span { font-size: var(--fs-sm); }
+  .navbar-nav {
+    display: none;
+  }
+
+  /* 底部Tab栏 */
+  .mobile-tabbar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 var(--space-xs);
+  }
+  .mobile-tabbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    border: none;
+    background: none;
+    color: var(--text-tertiary);
+    font-size: 10px;
+    cursor: pointer;
+    padding: var(--space-xs);
+    transition: color var(--transition-fast);
+    font-family: var(--font-body);
+    position: relative;
+  }
+  .mobile-tabbar-item.active { color: var(--accent-primary); }
+  .mobile-tabbar-item .badge {
+    position: absolute;
+    top: 2px;
+    right: 50%;
+    transform: translateX(12px);
+  }
+
+  /* 移动端菜单按钮 */
+  .mobile-menu-btn { display: flex !important; }
+  .mobile-tabbar { display: flex !important; }
+
+  /* 侧边栏 - 抽屉式 */
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
+    width: 280px;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .sidebar-overlay.show {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 49;
+  }
+
+  /* 内容区 */
+  .content-area {
+    margin-left: 0 !important;
+    padding: var(--space-lg) var(--space-md);
+    padding-bottom: 70px; /* 给底部Tab栏留空间 */
+  }
+
+  /* 网格变单列 */
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* 首页 */
+  .progress-overview {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+  .progress-ring { margin: 0 auto; }
+
+  /* 热力图 */
+  .heatmap {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  /* 模考信息 */
+  .mock-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .distribution-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* 模考导航 */
+  .mock-exam-header {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+  .mock-exam-timer { font-size: var(--fs-md); }
+  .mock-exam-progress { font-size: var(--fs-xs); }
+  .mock-question-grid {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: var(--space-xs);
+  }
+  .mock-grid-btn { width: 28px; height: 28px; font-size: var(--fs-xs); }
+
+  /* 结果页 */
+  .result-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+  .result-info { text-align: center; }
+  .result-meta { justify-content: center; flex-wrap: wrap; }
+
+  /* 题目卡片 */
+  .question-card {
+    padding: var(--space-md);
+  }
+  .question-body { font-size: var(--fs-md); }
+  .option { padding: var(--space-sm); }
+  .option-text { font-size: var(--fs-base); }
+
+  /* 速记卡 */
+  .flashcard { height: 280px; }
+  .flashcard-content { font-size: var(--fs-md); }
+
+  /* 知识点详情 */
+  .kp-detail-header {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .kp-actions { width: 100%; }
+
+  /* 翻页导航 */
+  .page-nav {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .page-nav .btn { width: 100%; justify-content: center; }
+
+  /* 进度条标签 */
+  .progress-bar-label { width: 120px; }
+
+  /* 答题回顾 */
+  .category-name { width: 100px; }
+}
+
+/* === 手机 (480px 以下) === */
+@media (max-width: 480px) {
+  :root {
+    --fs-base: 13px;
+    --fs-sm: 12px;
+  }
+
+  .navbar-logo span { display: none; }
+  .navbar-logo .logo-icon { width: 24px; height: 24px; }
+
+  .content-area {
+    padding: var(--space-md) var(--space-sm);
+    padding-bottom: 70px;
+  }
+
+  .page-header { margin-bottom: var(--space-lg); }
+  .page-title { font-size: var(--fs-xl); }
+
+  /* 统计卡片 */
+  .stat-card { padding: var(--space-md); }
+  .stat-value { font-size: var(--fs-xl); }
+
+  /* 卡片 */
+  .card { padding: var(--space-md); }
+
+  /* 题目选项 */
+  .option {
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+  .option-letter { width: 20px; height: 20px; }
+
+  /* 速记卡 */
+  .flashcard { height: 240px; padding: var(--space-md); }
+  .flashcard-front, .flashcard-back { padding: var(--space-md); }
+  .flashcard-content { font-size: var(--fs-sm); }
+
+  /* 搜索弹窗 */
+  .search-modal-content { width: 95%; }
+
+  /* 错题本操作 */
+  .wrong-item-actions { flex-wrap: wrap; }
+
+  /* 模考结果 */
+  .result-actions { flex-direction: column; }
+  .result-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* === 打印样式 === */
+@media print {
+  .navbar, .sidebar, .sidebar-overlay, .mobile-tabbar { display: none !important; }
+  .content-area { margin: 0 !important; padding: 0 !important; }
+  .question-card { page-break-inside: avoid; border: 1px solid #ccc; }
+}
